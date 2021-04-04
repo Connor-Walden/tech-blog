@@ -4,8 +4,21 @@ const { Post, Comment, User } = require('../../model');
 router.get('/', async (req, res) => {
   try {
     // Pass serialized data and session flag into template
+
+    // Get all posts from the db
+    const posts = Post.findAll({
+      include: Comment,
+    });
+
+    if(posts != null) {
+      console.log('----------------------------------------------------');
+      console.log('Posts found!');
+      console.log('----------------------------------------------------');
+    }
+
     res.render('home', {
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      posts: posts,
     });
   } catch (err) {
     res.status(500).json(err);
