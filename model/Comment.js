@@ -22,6 +22,10 @@ Comment.init(
     posted_at: {
       type: DataTypes.DATE,
       allowNull: false,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      onDelete: 'CASCADE',
     }
   },
   {
