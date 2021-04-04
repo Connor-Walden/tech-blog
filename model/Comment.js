@@ -25,7 +25,7 @@ Comment.init(
     },
     user_id: {
       type: DataTypes.INTEGER,
-      onDelete: 'CASCADE',
+      allowNull: false,
     }
   },
   {
